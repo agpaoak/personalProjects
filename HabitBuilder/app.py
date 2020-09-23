@@ -1,12 +1,12 @@
-import sys
 import os
 
 from task import Task
 from random import randint
 from collections import OrderedDict
 from datetime import datetime, time
+from habit import *
 
-from peewee import * 
+from peewee import *
 
 db = SqliteDatabase('habits.db')
 
@@ -21,9 +21,11 @@ class Habit(Model):
     class Meta:
         database = db
 
+
 # Clears console
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
+
 
 # Shows menu
 def menu_loop():
@@ -46,6 +48,7 @@ def menu_loop():
             clear()
             menu[choice]()
 
+
 def view_entries(entry = None):
     """View entries"""
     # View entries one by one
@@ -58,6 +61,7 @@ def view_entries(entry = None):
 
         if temp == 'n':
             break
+
 
 def add_entry():
     """Add an entry"""
